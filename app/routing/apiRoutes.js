@@ -1,7 +1,7 @@
 //The important part
 //Linking to our data source
 
-var surveyData = require("../data/surveyData");
+var surveyData = require("../data/friends");
 
 //Global variables for the logic
 var userScores =[];

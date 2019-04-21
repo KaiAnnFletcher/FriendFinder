@@ -14,8 +14,8 @@ app.use(express.json());
 
 //Here, we are requirring out route files. These serve as a map for our server and how 
 //it should respond when users visit the corresponding urls
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
 
 //This listener code starts our server
