@@ -4,9 +4,9 @@
 var surveyData = require("../data/friends");
 
 //Global variables for the logic
-var userScores =[];
-var matchScores = surveyData.score;
+//var user = req.body; // user data defined within a variable
 
+var yourMatch = []; // data to be filled in after calculation made 
 
 //Now to set up the routing
 
@@ -19,33 +19,26 @@ module.exports = function(app) {
 
     //Now here comes the post request which will handle the compatibility logic
     app.post("/api/friends", function(req, res) {
+        console.log(req.body.scores);
+        var  user = req.body
 
-        for (i=0; i < matchScores.length; i++) {
-            console.log(matchScores);
+        for (var i=0; i < user.scores.length; i++) {
+            user.scores[i]=parseInt(user.scores[i]);
+        }
 
-            difference = 0
+            totalDifference = 0
 
-            for (j = 0; j < userScores.length; j++)
+            
+            for (var j = 0; j < surveyData[j].scores.length; j++)
 
             {
-                difference += Math.abs(userScores[j] - matchScores[i]);
+                difference += Math.abs(user.scores[i] - surveyData[i].scores[j]);
 
-                if(difference <= yourMatch.difference) {
+                if(totalDifference <= difference) {
                     yourMatch.name = surveyData[i].name;
                     yourMatch.photo = surveyData[i].photo;
                     yourMatch.difference = difference;
-                }
+                };
             }
-        }
-    });
-
-
-
-
-
-
-
-
-
-
-}
+        });
+    }
